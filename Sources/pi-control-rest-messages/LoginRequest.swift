@@ -38,5 +38,7 @@ public struct LoginRequest: Codable {
     
     // MARK: - Public Properties
     
+    /// The ID of the device
     let deviceId: UUID
+    
 }
