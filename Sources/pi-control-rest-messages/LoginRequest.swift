@@ -40,5 +40,7 @@ public struct LoginRequest: Codable {
     
     /// The ID of the device
     let deviceId: UUID
+    /// The WebHook URI of the client
+    let webHook: String
     
 }
