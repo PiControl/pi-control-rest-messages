@@ -41,4 +41,6 @@ public struct LoginResponse: Codable {
     let message: String
     /// The JWT token; is available if result is `success` and no token was available before.
     let token: String?
+    /// Base64 encoded MQTT credentials
+    let mqttCredentials: String?
 }
