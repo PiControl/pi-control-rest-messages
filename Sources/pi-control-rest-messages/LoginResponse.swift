@@ -43,6 +43,16 @@ public struct LoginResponse: Codable {
     public let token: String?
     /// Base64 encoded MQTT credentials
     public let mqttCredentials: String?
+    
+    
+    // MARK: - Initialization
+    
+    public init(result: LoginResult, message: String, token: String? = nil, mqttCredentials: String? = nil) {
+        self.result = result
+        self.message = message
+        self.token = token
+        self.mqttCredentials = mqttCredentials
+    }
 }
 
 public extension LoginResponse {
