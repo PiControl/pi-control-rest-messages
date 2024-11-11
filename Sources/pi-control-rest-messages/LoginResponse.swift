@@ -20,7 +20,7 @@
 
 import Foundation
 
-enum LoginResult: String, Codable {
+public enum LoginResult: String, Codable {
     case success            = "success"
     case failure            = "failure"
     case sendCredentials    = "sendCredentials"
@@ -36,11 +36,21 @@ public struct LoginResponse: Codable {
     // MARK: - Public Properties
     
     /// Result of the `LoginRequest`
-    let result: LoginResult
+    public let result: LoginResult
     /// A message according to the result.
-    let message: String
+    public let message: String
     /// The JWT token; is available if result is `success` and no token was available before.
-    let token: String?
+    public let token: String?
     /// Base64 encoded MQTT credentials
-    let mqttCredentials: String?
+    public let mqttCredentials: String?
+}
+
+public extension LoginResponse {
+    func encoded() throws -> Data {
+        return try JSONEncoder().encode(self)
+    }
+    
+    static func decode(from data: Data) throws -> Self {
+        return try JSONDecoder().decode(Self.self, from: data)
+    }
 }

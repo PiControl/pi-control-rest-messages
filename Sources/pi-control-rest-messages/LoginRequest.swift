@@ -44,3 +44,13 @@ public struct LoginRequest: Codable {
     let webHook: String
     
 }
+
+public extension LoginRequest {
+    func encoded() throws -> Data {
+        return try JSONEncoder().encode(self)
+    }
+    
+    static func decode(from data: Data) throws -> Self {
+        return try JSONDecoder().decode(Self.self, from: data)
+    }
+}
