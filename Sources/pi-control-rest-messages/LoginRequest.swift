@@ -36,13 +36,6 @@ import Foundation
  */
 public struct LoginRequest: Codable {
     
-    // MARK: - Public Properties
-    
-    /// The ID of the device
-    let deviceId: UUID
-    /// The WebHook URI of the client
-    let webHook: String
-    
 }
 
 public extension LoginRequest {
