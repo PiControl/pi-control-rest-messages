@@ -36,6 +36,11 @@ import Foundation
  */
 public struct LoginRequest: Codable {
     
+    // MARK: - Initialization
+    
+    public init() {
+        // Empty by design
+    }
 }
 
 public extension LoginRequest {
